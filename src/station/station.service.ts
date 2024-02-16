@@ -8,8 +8,9 @@ export class StationService {
   constructor(readonly db:PrismaService){}
 
   create(createStationDto: CreateStationDto) {
-   return this.db.station.create({data:createStationDto
-  });
+    
+    return this.db.station.create({data:{batteryCharge:100,...createStationDto}
+     });
   }
 
   async findAll() {
